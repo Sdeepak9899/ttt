@@ -25,6 +25,7 @@ app.use(
   }),
 );
 console.log(process.env.FRONTEND_URL_NETLIFY, "frontend url");
+console.log(process.env.FRONTEND_URL, "frontend url");
 
 app.use(express.json());
 

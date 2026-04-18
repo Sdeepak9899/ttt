@@ -1,4 +1,5 @@
 const BASE = process.env.NEXT_PUBLIC_API_URL;
+console.log(BASE, "BACKEND URL");
 
 const request = async (url: string, options: any = {}) => {
   const res = await fetch(`${BASE}${url}`, {
@@ -31,7 +32,7 @@ export const api = {
     }),
 
   login: (data: any) =>
-    request("/api/auth/login", {
+    request("/auth/login", {
       method: "POST",
       body: JSON.stringify(data),
     }),
