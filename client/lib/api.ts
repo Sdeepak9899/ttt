@@ -27,7 +27,7 @@ const request = async (url: string, options: any = {}) => {
 export const api = {
   // --- Auth ---
   register: (data: any) =>
-    request("/api/auth/register", {
+    request("/auth/register", {
       method: "POST",
       body: JSON.stringify(data),
     }),
@@ -39,53 +39,53 @@ export const api = {
     }),
 
   logout: () =>
-    request("/api/auth/logout", {
+    request("/auth/logout", {
       method: "POST",
     }),
 
-  me: () => request("/api/auth/me"),
+  me: () => request("/auth/me"),
 
   updatePassword: (data: any) =>
-    request("/api/auth/update-password", {
+    request("/auth/update-password", {
       method: "PUT",
       body: JSON.stringify(data),
     }),
 
   updateProfile: (data: any) =>
-    request("/api/auth/update-profile", {
+    request("/auth/update-profile", {
       method: "PUT",
       body: JSON.stringify(data),
     }),
 
   // --- Notes ---
-  getNotes: () => request("/api/notes"),
+  getNotes: () => request("/notes"),
 
-  getNoteById: (id: string) => request(`/api/notes/${id}`),
+  getNoteById: (id: string) => request(`/notes/${id}`),
 
   createNote: (data: any) =>
-    request("/api/notes", {
+    request("/notes", {
       method: "POST",
       body: JSON.stringify(data),
     }),
 
   updateNote: (id: string, data: any) =>
-    request(`/api/notes/${id}`, {
+    request(`/notes/${id}`, {
       method: "PUT",
       body: JSON.stringify(data),
     }),
 
   deleteNote: (id: string) =>
-    request(`/api/notes/${id}`, {
+    request(`/notes/${id}`, {
       method: "DELETE",
     }),
 
   toggleFavorite: (id: string) =>
-    request(`/api/notes/${id}/favorite`, {
+    request(`/notes/${id}/favorite`, {
       method: "PATCH",
     }),
 
   toggleArchive: (id: string) =>
-    request(`/api/notes/${id}/archive`, {
+    request(`/notes/${id}/archive`, {
       method: "PATCH",
     }),
 };
