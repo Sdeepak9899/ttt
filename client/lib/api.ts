@@ -1,4 +1,6 @@
-const BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+const BASE = process.env.NEXT_PUBLIC_API_URL;
+// process.env.NEXT_PUBLIC_API_RENDER ||
+// "http://localhost:5000/api";
 
 const request = async (url: string, options: any = {}) => {
   const res = await fetch(`${BASE}${url}`, {
@@ -25,65 +27,65 @@ const request = async (url: string, options: any = {}) => {
 export const api = {
   // --- Auth ---
   register: (data: any) =>
-    request("/auth/register", {
+    request("/api/auth/register", {
       method: "POST",
       body: JSON.stringify(data),
     }),
 
   login: (data: any) =>
-    request("/auth/login", {
+    request("/api/auth/login", {
       method: "POST",
       body: JSON.stringify(data),
     }),
 
   logout: () =>
-    request("/auth/logout", {
+    request("/api/auth/logout", {
       method: "POST",
     }),
 
-  me: () => request("/auth/me"),
+  me: () => request("/api/auth/me"),
 
   updatePassword: (data: any) =>
-    request("/auth/update-password", {
+    request("/api/auth/update-password", {
       method: "PUT",
       body: JSON.stringify(data),
     }),
 
   updateProfile: (data: any) =>
-    request("/auth/update-profile", {
+    request("/api/auth/update-profile", {
       method: "PUT",
       body: JSON.stringify(data),
     }),
 
   // --- Notes ---
-  getNotes: () => request("/notes"),
+  getNotes: () => request("/api/notes"),
 
-  getNoteById: (id: string) => request(`/notes/${id}`),
+  getNoteById: (id: string) => request(`/api/notes/${id}`),
 
   createNote: (data: any) =>
-    request("/notes", {
+    request("/api/notes", {
       method: "POST",
       body: JSON.stringify(data),
     }),
 
   updateNote: (id: string, data: any) =>
-    request(`/notes/${id}`, {
+    request(`/api/notes/${id}`, {
       method: "PUT",
       body: JSON.stringify(data),
     }),
 
   deleteNote: (id: string) =>
-    request(`/notes/${id}`, {
+    request(`/api/notes/${id}`, {
       method: "DELETE",
     }),
 
   toggleFavorite: (id: string) =>
-    request(`/notes/${id}/favorite`, {
+    request(`/api/notes/${id}/favorite`, {
       method: "PATCH",
     }),
 
   toggleArchive: (id: string) =>
-    request(`/notes/${id}/archive`, {
+    request(`/api/notes/${id}/archive`, {
       method: "PATCH",
     }),
 };
