@@ -1,6 +1,4 @@
 const BASE = process.env.NEXT_PUBLIC_API_URL;
-// process.env.NEXT_PUBLIC_API_RENDER ||
-// "http://localhost:5000/api";
 
 const request = async (url: string, options: any = {}) => {
   const res = await fetch(`${BASE}${url}`, {

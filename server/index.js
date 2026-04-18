@@ -17,14 +17,14 @@ const app = express();
 app.use(
   cors({
     origin: [
-      process.env.FRONTEND_URL,
+      // process.env.FRONTEND_URL,
       process.env.FRONTEND_URL_NETLIFY,
-      process.env.FRONTEND_URL_VERCEL,
+      // process.env.FRONTEND_URL_VERCEL,
     ],
     credentials: true,
   }),
 );
-console.log(process.env.FRONTEND_URL, "frontend url");
+console.log(process.env.FRONTEND_URL_NETLIFY, "frontend url");
 
 app.use(express.json());
 
