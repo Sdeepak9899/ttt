@@ -1,4 +1,4 @@
-const BASE = process.env.NEXT_PUBLIC_API_URL + "/api";
+const BASE = process.env.NEXT_PUBLIC_API_URL;
 console.log(BASE, "BACKEND URL");
 
 const request = async (url: string, options: any = {}) => {
