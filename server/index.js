@@ -17,8 +17,8 @@ const app = express();
 app.use(
   cors({
     origin: [
-      // process.env.FRONTEND_URL,
-      process.env.FRONTEND_URL_NETLIFY,
+      process.env.FRONTEND_URL,
+      // process.env.FRONTEND_URL_NETLIFY,
       // process.env.FRONTEND_URL_VERCEL,
     ],
     credentials: true,
@@ -33,8 +33,16 @@ app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/notes", noteRoutes);
-app.use("/", (req, res) => {
+
+app.use("/login", (req, res) => {
   res.send("Hello World welcome to my The True Topper API");
+});
+
+app.get("/", (req, res) => {
+  res.send("Hello World welcome to my The True Topper API");
+});
+app.get("/api", (req, res) => {
+  res.send("Hello World welcome to my The True Topper API222");
 });
 
 const PORT = process.env.PORT || 8000;

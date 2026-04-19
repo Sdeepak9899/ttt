@@ -1,4 +1,4 @@
-const BASE = process.env.NEXT_PUBLIC_API_URL;
+const BASE = process.env.NEXT_PUBLIC_API_URL + "/api";
 console.log(BASE, "BACKEND URL");
 
 const request = async (url: string, options: any = {}) => {
@@ -15,11 +15,13 @@ const request = async (url: string, options: any = {}) => {
   if (res.status === 204) return null;
 
   const data = await res.json().catch(() => ({}));
+  console.log(data, "data 1234");
 
   if (!res.ok) {
     throw new Error(data.message || "Something went wrong");
   }
 
+  console.log(data, "data 0987");
   return data;
 };
 
@@ -32,7 +34,7 @@ export const api = {
     }),
 
   login: (data: any) =>
-    request("/auth/login", {
+    request("/api/auth/login", {
       method: "POST",
       body: JSON.stringify(data),
     }),
